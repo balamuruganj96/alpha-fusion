@@ -1,0 +1,11 @@
+langchain-openai
+python-dotenv
+langchain-mcp-adapters==0.2.1
+mcp
+langgraph
+fastapi
+google-cloud-firestore
+yfinance
+finnhub-python
+ta
+streamlit
