@@ -21,12 +21,7 @@ class AgentState(TypedDict):
 
 async def create_investment_graph(mcp_client):
     tools = await mcp_client.get_tools()
-    llm = AzureChatOpenAI(azure_endpoint="https://dbt-poc.openai.azure.com/",
-    azure_deployment="dbtpoc",
-    temperature=0.4, # Added a bit of "opinion",
-    api_version="2024-12-01-preview",
-    model='GPT-4.1 nano'
-    ).bind_tools(tools)
+    llm = AzureChatOpenAI().bind_tools(tools)
 
     async def call_model(state):
         return {"messages": [await llm.ainvoke(state['messages'])]}
